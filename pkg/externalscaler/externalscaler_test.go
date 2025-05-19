@@ -89,20 +89,20 @@ func TestHandleMinNum(t *testing.T) {
 			wantErr:   false,
 		},
 		{
+			name:      "integer - minNum == 0",
+			totalNum:  10,
+			noneNum:   2,
+			minNumStr: "0",
+			wantMin:   0,
+			wantErr:   false,
+		},
+		{
 			name:      "integer - minNum is 1",
 			totalNum:  10,
 			noneNum:   0,
 			minNumStr: "1",
 			wantMin:   1,
 			wantErr:   false,
-		},
-		{
-			name:      "invalid n - zero",
-			totalNum:  10,
-			noneNum:   2,
-			minNumStr: "0",
-			wantMin:   0,
-			wantErr:   true,
 		},
 		{
 			name:      "invalid n - negative",

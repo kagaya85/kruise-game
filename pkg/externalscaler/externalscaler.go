@@ -171,7 +171,7 @@ func NewExternalScaler(client client.Client) *ExternalScaler {
 
 // handleMinNum calculate the expected min number of GameServers from the give minNumStr,
 // supported format:
-//   - integer: minNum >= 1,
+//   - integer: minNum >= 1, n == 0,
 //     return the fixed min number of none opState GameServers.
 //   - float: 0 < minNum < 1,
 //     return the min number of none opState GameServers
@@ -197,7 +197,7 @@ func handleMinNum(totalNum, noneNum int, minNumStr string) (int, error) {
 		delta = math.Round(delta*100) / 100
 		minNum := int(math.Ceil(delta)) + noneNum
 		return minNum, nil
-	case n >= 1:
+	case n >= 1, n == 0:
 		n = math.Ceil(n)
 		return int(n), nil
 	}
